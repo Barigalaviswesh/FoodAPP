@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Food Delivery App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #EDDEBB; /* Light tan background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbZjZzU38b-1Q_yA2-frk-Nras8Bhonx6_Vw&s');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .container {
+            background-color: #CCAF6A; /* Golden beige container */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            color: #3A3A3A; /* Dark grey for header text */
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #3A3A3A; /* Dark grey for label text */
+            font-weight: bold;
+        }
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #E3CC98; /* Pale gold border */
+            border-radius: 8px;
+            background-color: #FFFFFF; /* White input background */
+            color: #333333; /* Dark charcoal text for readability */
+            font-size: 16px;
+            height: 45px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #A38131; /* Mustard yellow button */
+            color: #FFFFFF; /* White text */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            height: 45px;
+        }
+        input[type="submit"]:hover {
+            background-color: #CCAF6A; /* Lighten button on hover */
+            color: #3A3A3A; /* Dark grey text on hover */
+        }
+        .forgot-password {
+            margin-top: 10px;
+        }
+        .forgot-password a {
+            color: #111110; /* Mustard yellow for forgot password link */
+            font-size: 14px;
+            text-decoration: underline;
+        }
+        .forgot-password a:hover {
+            color: #3A3A3A; /* Dark grey on hover */
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: black; /* Dark grey for footer text */
+        }
+        footer p {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Login to Food Delivery</h2>
+        <form action="LoginServlet" >
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Login">
+        </form>
+        <a class="register-link" href="register.html">Register here</a>
+        <!-- Forgot password link -->
+        <div class="forgot-password">
+            <a href="reset.html">Forgot your password?</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Food Delivery App. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

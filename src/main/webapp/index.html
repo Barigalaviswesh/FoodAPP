@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to FoodApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1SRR6o4tfYjRRxyODb2yDMSbh-_07Y-w0nw&s'); /* Use your local image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .container {
+            background-color: rgba(237, 222, 187, 0.9); /* Light Beige with transparency */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+        h2 {
+            color: #A38131; /* Brown */
+            margin-bottom: 30px;
+        }
+        button {
+            background-color: #CCAF6A; /* Peach */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 100%;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #E3CC98; /* Light Tan on hover */
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: black; /* Dark Brown */
+        }
+        footer p {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Welcome to FoodApp</h2>
+        <div class="button-container">
+            <button onclick="window.location.href='register.html'">Register</button>
+            <button onclick="window.location.href='login.html'">Login</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 FoodApp. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

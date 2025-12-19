@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <title>Add Restaurant</title>
     <style>
+<<<<<<< HEAD
         * {
             margin: 0;
             padding: 0;
@@ -53,10 +54,32 @@
             max-width: 600px;
             margin: 0 auto;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+=======
+        body {
+            background-color: #EDDEBB;
+            font-family: Arial, sans-serif;
+            color: #66593B;
+            margin: 0;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #E3CC98;
+            padding: 30px;
+            border: 1px solid #A38131;
+            border-radius: 10px;
+            width: 50%;
+            max-width: 500px;
+            text-align: center;
+>>>>>>> b0c5b995833117a9018f01f37507912f3a09d135
         }
 
         h1 {
             color: #A38131;
+<<<<<<< HEAD
             margin-bottom: 30px;
             text-align: center;
             font-size: 2.2rem;
@@ -164,10 +187,48 @@
             h1 {
                 font-size: 1.8rem;
             }
+=======
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #66593B;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #A38131;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #CCAF6A;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: center;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #A38131;
+>>>>>>> b0c5b995833117a9018f01f37507912f3a09d135
         }
     </style>
 </head>
 <body>
+<<<<<<< HEAD
     <!-- Navigation -->
     <nav class="navbar">
         <div>
@@ -248,6 +309,30 @@
                     <a href="adminhome.jsp" class="btn btn-secondary">Cancel</a>
                 </div>
             </div>
+=======
+    <div class="container">
+        <h1>ADD RESTAURANT</h1>
+        <form action="AddRestaurant">
+            <label for="restid">Restaurant ID:</label>
+            <input type="text" name="restid" id="restid" required>
+
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="cuisineType">Cuisine Type:</label>
+            <input type="text" name="cusionType" id="cuisineType" required>
+
+            <label for="deliveryTime">Delivery Time (min):</label>
+            <input type="number" name="deleiverytime" id="deliveryTime" required>
+
+            <label for="isActive">Is Active:</label>
+            <input type="text" name="isactive" id="isActive" required>
+
+            <label for="ratings">Ratings:</label>
+            <input type="text" name="ratings" id="ratings" required>
+
+            <input type="submit" value="Submit">
+>>>>>>> b0c5b995833117a9018f01f37507912f3a09d135
         </form>
     </div>
 </body>

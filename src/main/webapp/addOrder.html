@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Order - Admin</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            color: #ff6b35;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="number"], select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #f8f9fa;
+        }
+
+        input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: #ff6b35;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.2);
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(135deg, #e55a2b, #e8851a);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid #ff6b35;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .back-link a:hover {
+            background-color: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .success-msg {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error-msg {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add New Order</h2>
+        
+        <!-- Success/Error Messages -->
+        <div id="messages"></div>
+        
+        <form action="addOrderServlet" method="post">
+            <div class="form-group">
+                <label for="userId">User ID:</label>
+                <input type="number" id="userId" name="userId" required min="1" placeholder="Enter User ID">
+            </div>
+
+            <div class="form-group">
+                <label for="restaurantId">Restaurant ID:</label>
+                <input type="number" id="restaurantId" name="restaurantId" required min="1" placeholder="Enter Restaurant ID">
+            </div>
+
+            <div class="form-group">
+                <label for="totalAmount">Total Amount:</label>
+                <input type="number" id="totalAmount" name="totalAmount" required min="1" placeholder="Enter Total Amount">
+            </div>
+
+            <div class="form-group">
+                <label for="status">Order Status:</label>
+                <select id="status" name="status" required>
+                    <option value="">Select Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Confirmed">Confirmed</option>
+                    <option value="Preparing">Preparing</option>
+                    <option value="Out for Delivery">Out for Delivery</option>
+                    <option value="Delivered">Delivered</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="paymentOption">Payment Option:</label>
+                <select id="paymentOption" name="paymentOption" required>
+                    <option value="">Select Payment Method</option>
+                    <option value="cash">Cash</option>
+                    <option value="card">Card</option>
+                    <option value="upi">UPI</option>
+                    <option value="wallet">Wallet</option>
+                </select>
+            </div>
+
+            <input type="submit" value="Add Order">
+        </form>
+
+        <div class="back-link">
+            <a href="adminhome.html">← Back to Dashboard</a>
+        </div>
+    </div>
+
+    <script>
+        // Check for URL parameters to show success/error messages
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const success = urlParams.get('success');
+            const error = urlParams.get('error');
+            const messagesDiv = document.getElementById('messages');
+            
+            if (success === 'order_added') {
+                messagesDiv.innerHTML = '<div class="success-msg">✅ Order added successfully!</div>';
+            }
+            
+            if (error) {
+                let errorMsg = '';
+                if (error === 'order_failed') {
+                    errorMsg = '❌ Failed to add order. Please try again.';
+                } else if (error === 'invalid_input') {
+                    errorMsg = '⚠️ Invalid input. Please check your data.';
+                } else if (error === 'server_error') {
+                    errorMsg = '❌ Server error. Please try again later.';
+                }
+                
+                if (errorMsg) {
+                    messagesDiv.innerHTML = `<div class="error-msg">${errorMsg}</div>`;
+                }
+            }
+        };
+    </script>
+</body>
+</html>

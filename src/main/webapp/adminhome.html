@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            width: 50%;
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+        
+        .welcome-msg {
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        a {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            width: 200px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .logout-btn {
+            background: linear-gradient(135deg, #dc3545, #c82333) !important;
+            margin-top: 30px;
+        }
+        
+        .logout-btn:hover {
+            background: linear-gradient(135deg, #c82333, #bd2130) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <p class="welcome-msg">Welcome, Admin!</p>
+        <a href="addRestarent.jsp">ADD RESTAURANT</a>
+        <a href="addMenu.jsp">ADD MENU</a>
+        <a href="addOrder.html">ADD ORDER</a>
+        <a href="addOrderHistory.html">ADD ORDER HISTORY</a>
+        <a href="addOrderItem.html">ADD ORDER ITEM</a>
+        <a href="admin.html" class="logout-btn">LOGOUT</a>
+    </div>
+</body>
+</html>

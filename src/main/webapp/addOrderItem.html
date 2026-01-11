@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Order Item - Admin</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            color: #ff6b35;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #f8f9fa;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #ff6b35;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.2);
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(135deg, #e55a2b, #e8851a);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid #ff6b35;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .back-link a:hover {
+            background-color: #ff6b35;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .calculate-btn {
+            background: linear-gradient(135deg, #17a2b8, #138496);
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .calculate-btn:hover {
+            background: linear-gradient(135deg, #138496, #117a8b);
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add Order Item</h2>
+        
+        <form action="addOrderItemServlet" method="post">
+            <div class="form-group">
+                <label for="orderId">Order ID:</label>
+                <input type="number" id="orderId" name="orderId" required min="1" placeholder="Enter Order ID">
+            </div>
+
+            <div class="form-group">
+                <label for="menuId">Menu ID:</label>
+                <input type="number" id="menuId" name="menuId" required min="1" placeholder="Enter Menu ID">
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required min="1" placeholder="Enter Quantity" onchange="calculateSubtotal()">
+            </div>
+
+            <div class="form-group">
+                <label for="unitPrice">Unit Price (for calculation):</label>
+                <input type="number" id="unitPrice" step="0.01" min="0" placeholder="Enter unit price" onchange="calculateSubtotal()">
+                <button type="button" class="calculate-btn" onclick="calculateSubtotal()">Calculate Subtotal</button>
+            </div>
+
+            <div class="form-group">
+                <label for="subtotal">Subtotal:</label>
+                <input type="number" id="subtotal" name="subtotal" required min="0" placeholder="Enter Subtotal">
+            </div>
+
+            <input type="submit" value="Add Order Item">
+        </form>
+
+        <div class="back-link">
+            <a href="adminhome.html">← Back to Dashboard</a>
+        </div>
+    </div>
+
+    <script>
+        function calculateSubtotal() {
+            const quantity = document.getElementById('quantity').value;
+            const unitPrice = document.getElementById('unitPrice').value;
+            
+            if (quantity && unitPrice) {
+                const subtotal = quantity * unitPrice;
+                document.getElementById('subtotal').value = subtotal.toFixed(0);
+            }
+        }
+    </script>
+</body>
+</html>
